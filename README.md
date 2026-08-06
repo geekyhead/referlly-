@@ -1,56 +1,50 @@
-# Welcome to your Expo app 👋
+# Referly
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+An app to match job seekers to job providers — a Hinge-style swipe, match, and chat
+experience, but for recruiters, senior employees who can refer candidates, and people
+looking for their next role.
 
-## Get started
+This is a **frontend-only prototype**: every profile, message, and stat is placeholder
+data. There is no backend, no real accounts, and nothing persists between app reloads
+(aside from in-session state such as likes sent, matches made, and messages typed).
 
-1. Install dependencies
+## Stack
 
-   ```bash
-   npm install
-   ```
+- [Expo](https://expo.dev) SDK 54 (React Native 0.81)
+- [expo-router](https://docs.expo.dev/router/introduction/) for file-based navigation
+- TypeScript, `react-native-reanimated` + `react-native-gesture-handler` for the swipe deck
+- `expo-image` for photos, `expo-blur` for the paywall blur effect
 
-2. Start the app
+## Features
 
-   ```bash
-   npx expo start
-   ```
+- **Onboarding**: role selection (job seeker vs. recruiter/referrer), profile basics,
+  a LinkedIn-import simulation, prompt selection, and preferences
+- **Discover**: a swipeable deck of profiles with match-score, "hiring for" criteria,
+  and a mutual-match simulation that can trigger a real in-session match + chat thread
+- **Standouts**: curated/featured profiles in their own tab
+- **Likes You / Interest Sent**: who's interested in you, and who you've shown interest in
+- **Matches**: a chat list with real (session-only) messaging, including a first-message
+  prompt for brand-new matches
+- **Activity**: a notifications feed (matches, interest, profile views, tips)
+- **Profile**: your own profile, job/hiring preferences, account settings, and a
+  Referly+ paywall screen
 
-In the output, you'll find options to open the app in a
+Both job seekers and recruiters/referrers are supported as a single toggle-able role —
+switching roles changes what Discover, Likes, Matches, and Activity show.
+
+## Getting started
+
+```bash
+npm install
+npx expo start
+```
+
+In the output, you'll find options to open the app in a:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Expo Go](https://expo.dev/go), a sandbox for trying out the app on a physical device
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The app code lives under `src/app` (file-based routes), `src/components`, `src/data`
+(placeholder data), and `src/state` (session-only app state via React Context).
